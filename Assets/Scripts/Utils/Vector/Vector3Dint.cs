@@ -1,12 +1,12 @@
 ﻿namespace Utils
 {
-    public class Vector3D
+    public class Vector3Dint
     {
-       public float x;
-       public float y;
-       public float z;
+       public int x;
+       public int y;
+       public int z;
 
-       public Vector3D(float x, float y, float z)
+       public Vector3Dint(int x, int y, int z)
        {
            this.x = x;
            this.y = y;
@@ -15,7 +15,7 @@
 
         public override bool Equals(object obj)
         {
-            var vector = obj as Vector3D;
+            var vector = obj as Vector3Dint;
             return x == vector.x && y == vector.y && z == vector.z;
         }
 
