@@ -20,7 +20,7 @@
         public override int GetHashCode()
         {
             int hashcode = x.GetHashCode();
-            hashcode = 31*hashcode + y.GetHashCode();
+            hashcode = 1023*hashcode + y.GetHashCode();
             return hashcode;
         }
     }
