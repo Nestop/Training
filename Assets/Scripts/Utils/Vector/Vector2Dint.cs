@@ -1,6 +1,6 @@
 ﻿namespace Utils
 {
-    public class Vector2Dint
+    public struct Vector2Dint
     {
        public int x;
        public int y;
@@ -13,7 +13,7 @@
 
         public override bool Equals(object obj)
         {
-            var vector = obj as Vector2Dint;
+            var vector = (Vector2Dint)obj;
             return x == vector.x && y == vector.y;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Utils
 {
-    public class Vector2D
+    public struct Vector2D
     {
         private const float ACCURACY_FOR_HASH = 1E6f+1;
 
@@ -15,7 +15,7 @@
 
             public override bool Equals(object obj)
             {
-                var vector = obj as Vector2D;
+                var vector = (Vector2D)obj;
                 return x == vector.x && y == vector.y;
             }
 
