@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
-using Utils;
+using Utils.Vector;
 
 namespace Tests
 {
@@ -9,43 +10,31 @@ namespace Tests
     {
         private void Start()
         {
-            var unityVector2Collisions = Test.TestClassOnCollision((x,y)=>{ return new Vector2(x,y);});
-            Debug.Log(unityVector2Collisions);
-
-            var unityVector2IntCollisions = Test.TestClassOnCollision((x,y)=>{ return new Vector2Int(x,y);});
-            Debug.Log(unityVector2IntCollisions);
-
-            var Vector2Collisions = Test.TestClassOnCollision((x,y)=>{ return new Vector2D(x,y);});
-            Debug.Log(Vector2Collisions);
-
-            var Vector2IntCollisions = Test.TestClassOnCollision((x,y)=>{ return new Vector2Dint(x,y);});
-            Debug.Log(Vector2IntCollisions);
+            TestClassOnCollision((x, y) => new Vector2(Mathf.Sqrt(x), Mathf.Sqrt(y)), 0, 1000);
+            TestClassOnCollision((x, y) => new Vector2Int(x, y), 0, 1000);
+            TestClassOnCollision((x, y) => new Vector2D(Mathf.Sqrt(x), Mathf.Sqrt(y)), 0, 1000);
+            TestClassOnCollision((x, y) => new Vector2Dint(x, y), 0, 1000);
         }
-    }
 
-    static public class Test
-    {
-        private const int SQRT_DICTIONARY_SIZE = 1024;
-        private const int SQRT_TEST_COUNT = 1000;
-            
-        public delegate object ObjectCreator(int x, int y);
+        private delegate object ObjectCreator(int x, int y);
 
-        static public int TestClassOnCollision(ObjectCreator CreateObject)
+        private void TestClassOnCollision(ObjectCreator createObject, int from, int to)
         {
-            var collisons = 0;
-            var size = SQRT_DICTIONARY_SIZE;
-            var tests = SQRT_TEST_COUNT;
-            var hashCodes = new Dictionary<int, object>(size*size);
-            
-            for(int i = 0; i < tests; i++)
+            var collisions = 0;
+            var checksCountInLoop = to - from;
+            var allChecks = checksCountInLoop * checksCountInLoop;
+            var dictionarySize = (int) Mathf.Pow(2, Mathf.Ceil(Mathf.Log(allChecks, 2f)));
+            var hashCodes = new Dictionary<int, object>(dictionarySize);
+
+            for (var i = from; i < to; i++)
             {
-                for(int j = 0; j < tests; j++)
+                for (var j = from; j < to; j++)
                 {
-                    var obj = CreateObject(i,j);
+                    var obj = createObject(i, j);
                     var hashCode = obj.GetHashCode();
-                    if(hashCodes.ContainsKey(hashCode))
+                    if (hashCodes.ContainsKey(hashCode))
                     {
-                        collisons++;
+                        collisions++;
                     }
                     else
                     {
@@ -53,7 +42,11 @@ namespace Tests
                     }
                 }
             }
-            return collisons;
+
+            var collisionsPercent = collisions * 100f / allChecks;
+            Debug.Log(
+                $"{collisionsPercent.ToString(CultureInfo.CurrentCulture)}% collisions in " +
+                $"{createObject(0,0).GetType().FullName} ({collisions} matches out of {allChecks} checks)");
         }
     }
 }

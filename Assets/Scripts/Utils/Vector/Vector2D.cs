@@ -1,8 +1,10 @@
-﻿namespace Utils
+﻿using System;
+
+namespace Utils.Vector
 {
-    public struct Vector2D
+    public struct Vector2D : IEquatable<Vector2D>
     {
-        private const float ACCURACY_FOR_HASH = 1E6f+1;
+        private const float AccuracyForHash = 1E6f + 1;
 
         public float x;
         public float y;
@@ -13,17 +15,31 @@
             this.y = y;
         }
 
-            public override bool Equals(object obj)
-            {
-                var vector = (Vector2D)obj;
-                return x == vector.x && y == vector.y;
-            }
+        public override bool Equals(object obj)
+        {
+            return obj is Vector2D vector && Equals(vector);
+        }
 
-            public override int GetHashCode()
-            {
-                int hashcode = ((int)(x*ACCURACY_FOR_HASH)).GetHashCode();
-                hashcode =hashcode*1023 + ((int)(y*ACCURACY_FOR_HASH)).GetHashCode();
-                return hashcode;
-            }
+        public bool Equals(Vector2D vector)
+        {
+            return x.Equals(vector.x) && y.Equals(vector.y);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashcode = ((int) (x * AccuracyForHash)).GetHashCode();
+            hashcode = hashcode * 1023 + ((int) (y * AccuracyForHash)).GetHashCode();
+            return hashcode;
+        }
+        
+        public static implicit operator Vector2D(Vector3D vec3)
+        {
+            return new Vector2D(vec3.x, vec3.y);
+        }
+
+        public static implicit operator Vector3D(Vector2D vec2)
+        {
+            return new Vector3D(vec2.x, vec2.y, 0f);
+        }
     }
 }
