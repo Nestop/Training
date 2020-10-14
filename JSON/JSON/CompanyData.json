@@ -1,0 +1,82 @@
+﻿{
+  "companyName":"OpenMyGame",
+  "location":"International street, 13, Gomel",
+  "employees":
+  {
+    "EA2145":{
+      "name":"Max K.",
+      "position":"2D Artist",
+      "workplaceNumber":"51",
+      "phone":"+375 29 229-13-31"
+    },
+    "FF7321":{
+      "name":"Anna L.",
+      "position":"2D Artist",
+      "workplaceNumber":"33",
+      "phone":"+375 44 123-45-60"
+    },
+    "AA1010":{
+      "name":"Jason C.",
+      "position":"C# Programmer",
+      "workplaceNumber":"101",
+      "phone":"+375 29 010-10-11"
+    }
+  },
+  "workplaces":
+  {
+    "33": 
+    {
+      "type":"2D_SIMPLE"
+    },
+    "51":
+    {
+      "type":"2D_ADVANCED"
+    },
+    "101":
+    {
+      "type":"PROG_WIN_ADVANCED"
+    }
+  },
+  "workplaceType":
+  {
+    "2D_SIMPLE":
+    {
+    "OS":"WIN10",
+    "Monitors":["LG_24mk600"],
+    "CPU":"AMD_FX8600",
+    "GraphicsCards":["GeForce9600GT"],
+    "RAM":["HyperX_Fury_8GB"]
+    },
+    "2D_ADVANCED":
+    {
+    "OS":"WIN10",
+    "Monitors":["LG_24mk600","LG_24mk600"],
+    "CPU":"AMD",
+    "GraphicsCards":["GTX960"],
+    "RAM":["HyperX_Fury_8GB","HyperX_Fury_8GB"]
+    },
+    "PROG_WIN_ADVANCED":
+    {
+      "OS":"WIN10",
+      "Monitors":["Dell_s2719dc"],
+      "CPU":"IntelCoreI9",
+      "GraphicsCards":[],
+      "RAM":["HyperX_Fury_8GB"]
+    }
+  },
+  "projects": 
+  {
+    "Relax_Puzzles": 
+    {
+      "genre": ["2D","puzzle","f2p"],
+      "releaseBuild": "1.8.20",
+      "developers": ["Max K.","Jason C."]
+    },
+    "NWTD": 
+    {
+      "genre": ["3D", "Action", "Survival", "Top-down","f2p"],
+      "releaseBuild": "1.6.1",
+      "developers": ["Anna L.","Jason C."]
+    }
+  }
+}

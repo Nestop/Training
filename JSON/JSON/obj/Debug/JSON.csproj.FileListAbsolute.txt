@@ -1,0 +1,6 @@
+F:\Training\JSON\JSON\bin\Debug\JSON.exe
+F:\Training\JSON\JSON\bin\Debug\JSON.pdb
+F:\Training\JSON\JSON\obj\Debug\JSON.csprojAssemblyReference.cache
+F:\Training\JSON\JSON\obj\Debug\JSON.csproj.CoreCompileInputs.cache
+F:\Training\JSON\JSON\obj\Debug\JSON.exe
+F:\Training\JSON\JSON\obj\Debug\JSON.pdb

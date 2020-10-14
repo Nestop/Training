@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\UserOMG\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\UserOMG\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_JSON.-1318055809.00" t="ExcludeRecursive" />
+    <e p="F:\Training\HashCode-Test-master\JSON" t="IncludeFlat">
+      <e p="JSON" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CompanyData.json" t="Include" />
+        <e p="Data" t="Include">
+          <e p="CompanyData.cs" t="Include" />
+          <e p="EmployeData.cs" t="Include" />
+          <e p="ProjectData.cs" t="Include" />
+          <e p="WorkplaceData.cs" t="Include" />
+        </e>
+        <e p="JSON.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Utils" t="Include">
+          <e p="FileReader.cs" t="Include" />
+          <e p="SimpleJSON-master" t="Include">
+            <e p="Changelog.txt" t="Include" />
+            <e p="LICENSE" t="Include" />
+            <e p="README" t="Include" />
+            <e p="SimpleJson.cs" t="Include" />
+            <e p="SimpleJSONBinary.cs" t="Include" />
+            <e p="SimpleJSONDotNetTypes.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="JSON.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
